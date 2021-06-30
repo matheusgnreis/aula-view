@@ -11,8 +11,10 @@
       <% for(let i = 0; i < 3; i++) {%>
         <li>
           Descrição: <span><%= listaSemDesconto[i].desc %></span>,
-          Preço: <span><%= listaSemDesconto[i].preco %></span>,
-          Preço com Desconto: <span><%= desconto[i] %></span>
+          Preço: <span><%= listaSemDesconto[i].preco %></span>
+          <% if(listaSemDesconto[i].preco > desconto[i]) { %>
+            , Preço com Desconto: <span><%= desconto[i] %></span>
+          <% } %>
         </li>
       <% } %>
     </ul>

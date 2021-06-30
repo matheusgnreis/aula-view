@@ -4,8 +4,9 @@ const controllerComDesconto = require('../controller/listarComDesconto');
 const controllerListarTodos = require('../controller/listarTodos');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  const listaComDesconto = controllerComDesconto.retornarListaServicos(10)
+router.get('/servicos', function(req, res, next) {
+  const { taxa_desconto } = req.query
+  const listaComDesconto = controllerComDesconto.retornarListaServicos(taxa_desconto || 0)
   const listarTodos = controllerListarTodos.retornarListaTodosServicos()
 
   res.render('index', { 
